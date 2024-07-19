@@ -1,0 +1,6 @@
+@PreCompiledQuery_HostAddress = http://localhost:5037
+
+GET {{PreCompiledQuery_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
