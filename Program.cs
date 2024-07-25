@@ -1,4 +1,5 @@
 using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Toolchains.InProcess.Emit;
@@ -30,9 +31,12 @@ if (app.Environment.IsDevelopment())
 
 var config = DefaultConfig.Instance
     .AddJob(Job
-         .MediumRun
+         .Default
+         .WithId("x64-Core50")
          .WithLaunchCount(1)
-         .WithToolchain(InProcessEmitToolchain.Instance));
+         .WithIterationCount(1)
+         .WithPlatform(Platform.X64)
+         .WithRuntime(CoreRuntime.Core50));
 
 BenchmarkRunner.Run<OrderService>(config);
 

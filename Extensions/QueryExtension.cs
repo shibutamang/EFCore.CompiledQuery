@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using PreCompiledQuery.Data;
 using PreCompiledQuery.Entities;
@@ -23,4 +24,11 @@ public static class QueryExtensions
     {
         return EF.CompileAsyncQuery(queryExpression);
     }
+
+    //public static IAsyncEnumerable<TEntity> GetCompiledQuery<TContext, TEntity>(TContext context) where TContext : DbContext
+    //{
+    //    var deleg = EF.CompileAsyncQuery((TContext context, Expression<Func<TEntity, bool>> exp) => exp);
+       
+
+    //}
 }
